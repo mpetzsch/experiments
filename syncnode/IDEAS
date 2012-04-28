@@ -12,3 +12,9 @@
 	sourceNode = the host + port as a symbol which originally created this message
 	itemName = the symbol name of the item which has been modified
 	packet = the modification... tbd
+
+ - modifications allowed
+ 	- insert
+	- update
+	- delete
+ - a node on startup should also be able to request a state snapshot
