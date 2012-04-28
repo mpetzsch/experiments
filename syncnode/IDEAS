@@ -1,0 +1,14 @@
+ - several q instances which need to remain in sync - in terms of data, not functions
+ - ideally as little intrusion as possible.  i.e. enable for a number of variables (of different types)
+ - push based to minimise delay
+ - must avoid lockups; so as much async as possible
+ - log messages to disk on each node
+ - must be resilient to a failed / new node
+ - must allow for recovery of a node when it returns to the mesh
+ - how should conflicts be managed?  intelligently?? how can you determine if there is a conflict... basically you cannot guarantee that one update is possible if another update has since happened.  stamp with nanos for earliest uniqueness??  box with earlier time will therefore win but ... unlikely / infrequent occurence.
+ - sample message
+ 	(.z.p;sourceNode;itemName;packet)
+	.z.p = the nanosecond timestamp when the message was created
+	sourceNode = the host + port as a symbol which originally created this message
+	itemName = the symbol name of the item which has been modified
+	packet = the modification... tbd
