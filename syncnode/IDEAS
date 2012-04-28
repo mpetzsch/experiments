@@ -18,3 +18,4 @@
 	- update
 	- delete
  - a node on startup should also be able to request a state snapshot
+ - how to handle differing initial states?  just go from priority?

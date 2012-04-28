@@ -5,6 +5,15 @@
 / - if the state is different then the started node
 / when the state of a node is modified - it pushes this message to all of the other nodes it is aware of so that they remain synchronized
 
+/ address!handle
+.sn.nodes:()!();
+
+/ log of previous messages received
+.sn.msglog:();
+
+/ copy of initial data states
+.sn.initial:()!();
+
 / startup connect and sync
 .sn.start:{
  };
