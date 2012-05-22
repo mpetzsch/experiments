@@ -31,7 +31,7 @@
  };
 
 / give out a snapshot of all syncd data
-.sn.snap:{
+.sn.pull:{
  };
 
 / retrieve this node's priority (higher is higher)

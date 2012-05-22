@@ -19,3 +19,11 @@
 	- delete
  - a node on startup should also be able to request a state snapshot
  - how to handle differing initial states?  just go from priority?
+
+
+ - how about just registering functions which should be intercepted and called on remote instances as well?
+	- syncFunctions
+	- nodeFunctions
+	- stateFunctions
+	- .sn.intercepted:(`functionA`functionB`.ns.functionC)
+	- how to generate functions of the correct rank for interception? possible to count args of a function?

@@ -1,0 +1,27 @@
+# query gateway
+# instance with helper functions to subscribe
+# query gateway should spawn instance
+	- which will act as tickerplant gateway
+	- will also act as a relay for hdb and rdb data
+	- should PUSH all data so that node is agnostic to data source
+# controller node
+	- request a new execution
+	- manages execution reporting
+	- starts a new data node (which uses the query gateway; or can initially just subscribe to tickerplants)
+	- starts a new execution node
+
+# execution node
+	- is started wrapped by execution.q
+	- exposes a dictionary of subscriptions
+		- allowed to add subscriptions later? .. could do.. just more tp subs if rt, more complicated if not
+	- somehow hide hopen from wider use?  i.e. cut down q.k ?
+	- implements a function tick[dataDictionary;nowTimestamp] 
+	- no possibility yet for connected sets of nodes... initially all calculation must be done in single node
+	- execution node can publish ticks (initially maybe configure target for these? later allow subscriptions)
+	- how do you manage time based rather than data driven ticks ?
+		- could use milli timer on execution node (no guarantee... but can there ever be?)
+		- could use seperate instance... but likely need it to be same instance to ensure ordering
+		- instance itself would iterate through pushed data... how would it know to iterate?
+		- rcv and tick being two different things? i.e. rcv is a new set of data being pushed whereas tick is the local calculation
+		- ** therefore inside rcv you can order the timed event within the received data **
+
