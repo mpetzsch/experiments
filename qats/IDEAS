@@ -24,4 +24,23 @@
 		- instance itself would iterate through pushed data... how would it know to iterate?
 		- rcv and tick being two different things? i.e. rcv is a new set of data being pushed whereas tick is the local calculation
 		- ** therefore inside rcv you can order the timed event within the received data **
+			- what happens to a timer if the thread is busy when the timer should occur
+			- don't use the timer? simply take current source time and add +T; then add this event to the queue
+			- using this in realtime could prove problematic?  need to use the timer as well to invoke any events which remain
+			... so
+			- add T+ event to event queue
+			- timer runs every milli and invokes anything which should have gone through
 
+# v1
+	- realtime data only
+	- pushed to execution node from data node
+	- both started manually
+	
+# v2
+ 	- controller node which starts and manages executions of other nodes
+
+# v3
+	- timed data for callbacks
+
+# v4
+	- historic data
