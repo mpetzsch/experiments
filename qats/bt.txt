@@ -1,7 +1,0 @@
-- backtesting analytics in q
-- q analytics
-- streaming analytics in q
-- raq
-- saq
-- baq
-- qats
